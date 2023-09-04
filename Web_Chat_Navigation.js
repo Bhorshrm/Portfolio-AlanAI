@@ -27,7 +27,7 @@ const PAGE_DATA = {
         "variants": ["contact_"],
     },
     "Resume": {
-        "url": "assets/pdf/alan-turing-jr-resume.pdf",
+        "url": "assets/pdf/cv_bhor.pdf",
         "target": "_blank",
         "variants": ["resume", "CV", "curriculum vitae"],
     }
@@ -108,7 +108,7 @@ intent("How (can I|do I|to) (contact|get in touch|connect) (with|) (you|)", p =>
 
 
 // Filtering products in the Portfolio section
-intent('Show $(FRAMEWORK all~all|web~1|ios~2|android~3|flutter~4|react native~5|ionic~6) (apps|samples|examples|projects|)', p => {
+intent('Show $(FRAMEWORK all~all|web~1|ios~2|android~3|react native~5) (apps|samples|examples|projects|)', p => {
     p.play({command: "openURL", url: "#mu-portfolio"}, opts({force:true}));
     p.play({command: "filterPortfolio", value: p.FRAMEWORK.label}, opts({force:true}));
     p.play(`Here is the list of ${p.FRAMEWORK.value} apps I have worked on`)
@@ -119,7 +119,7 @@ intent(
     "Do you have a resume",
     "Where can I find (the|your|) resume",
     p => {
-        p.play({command: "openURL", url: "assets/pdf/alan-turing-jr-resume.pdf", target: "_blank"}, opts({force:true}));
+        p.play({command: "openURL", url: "assets/pdf/cv_bhor.pdf", target: "_blank"}, opts({force:true}));
         p.play("(Here you go|There it is)");
     }
 )
